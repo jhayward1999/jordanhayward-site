@@ -1,28 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ name }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      .hero {
+        text-align: center;
+      }
+      .hero h1 {
+        margin-bottom: 0.25rem;
+      }
+      .blurb {
+        font-size: 0.95rem;
+        color: var(--pico-muted-color);
+        margin-bottom: 1.5rem;
+      }
+      .divider {
+        border: none;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--pico-primary),
+          transparent
+        );
+        margin: 0 0 1rem 0;
+      }
+      .site-nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>{{ name }}</h1>
-    <p>
-      <a href="https://github.com/jhayward1999">GitHub</a>
-      ·
-      <a href="https://www.linkedin.com/in/jordan-hayward-b9122120a/">LinkedIn</a>
-    </p>
+    <header class="container">
+      <div class="hero">
+        <h1>{{ name }}</h1>
+        <p class="blurb">
+          Software engineer who likes building small useful tools.
+          This is where I put them.
+        </p>
+      </div>
 
-    <h2>Tools</h2>
-    {% if tools %}
-      {% for tool in tools %}
-        <article>
-          <a href="{{ tool.href }}">{{ tool.name }}</a>
-          <p>{{ tool.description }}</p>
-        </article>
-      {% endfor %}
-    {% else %}
-      <p>Nothing here yet.</p>
-    {% endif %}
+      <hr class="divider" />
+
+      <nav class="site-nav">
+        <a href="https://github.com/jhayward1999">GitHub</a>
+        <a href="https://www.linkedin.com/in/jordan-hayward-b9122120a/">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h2>Tools</h2>
+      {% if tools %}
+        {% for tool in tools %}
+          <article>
+            <a href="{{ tool.href }}">{{ tool.name }}</a>
+            <p>{{ tool.description }}</p>
+          </article>
+        {% endfor %}
+      {% else %}
+        <p>Nothing here yet...</p>
+      {% endif %}
+    </main>
   </body>
 </html>
