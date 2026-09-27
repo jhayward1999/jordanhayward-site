@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ name }}</title>
+  </head>
+  <body>
+    <h1>{{ name }}</h1>
+    <p>
+      <a href="https://github.com/jhayward1999">GitHub</a>
+      ·
+      <a href="https://www.linkedin.com/in/jordan-hayward-b9122120a/">LinkedIn</a>
+    </p>
+
+    <h2>Tools</h2>
+    {% if tools %}
+      {% for tool in tools %}
+        <article>
+          <a href="{{ tool.href }}">{{ tool.name }}</a>
+          <p>{{ tool.description }}</p>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p>Nothing here yet.</p>
+    {% endif %}
+  </body>
+</html>
